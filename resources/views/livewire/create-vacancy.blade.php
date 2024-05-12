@@ -1,5 +1,6 @@
 <form class="md:w-1/2 space-y-5" wire:submit.prevent="createVacancy">
 
+    {{-- Title --}}
     <div>
         <x-input-label for="title" :value="__('Vacancy Title')" />
         <x-text-input
@@ -13,6 +14,8 @@
             <livewire:show-alert :message="$message"/>
         @enderror
     </div>
+
+    {{-- salary --}}
     <div>
         <x-input-label
             for="salary"
@@ -33,6 +36,8 @@
             <livewire:show-alert :message="$message"/>
         @enderror
     </div>
+
+    {{-- Category --}}
     <div>
         <x-input-label for="category" :value="__('Vacancy Category')" />
 
@@ -51,6 +56,8 @@
             <livewire:show-alert :message="$message"/>
         @enderror
     </div>
+
+    {{-- Company --}}
     <div>
         <x-input-label for="company" :value="__('Company')" />
         <x-text-input
@@ -64,6 +71,8 @@
             <livewire:show-alert :message="$message"/>
         @enderror
     </div>
+
+    {{-- Last Day --}}
     <div>
         <x-input-label for="last_day" :value="__('Last day to apply')" />
         <x-text-input
@@ -77,8 +86,11 @@
             <livewire:show-alert :message="$message"/>
         @enderror
     </div>
+
+    {{-- Description --}}
     <div>
         <x-input-label for="description" :value="__('Description of the vacancy')" />
+
         <x-textarea-input
             wire:model="description"
             id="description"
@@ -88,6 +100,8 @@
             <livewire:show-alert :message="$message"/>
         @enderror
     </div>
+
+    {{-- Image --}}
     <div>
         <x-input-label for="image" :value="__('Image')" />
 
