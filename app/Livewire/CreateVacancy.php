@@ -60,7 +60,7 @@ class CreateVacancy extends Component
         $categories = Category::all();
 
         return view('livewire.create-vacancy', [
-            'salaries' => $salaries,
+            'salaries'   => $salaries,
             'categories' => $categories
         ]);
     }

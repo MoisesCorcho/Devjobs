@@ -22,6 +22,7 @@ Route::get('/', function () {
 Route::controller(VacancyController::class)->group(function() {
     Route::get('dashboard', 'index')->name('vacancies.index');
     Route::get('vacancies/create', 'create')->name('vacancies.create');
+    Route::get('vacancies/{vacancy}/edit', 'edit')->name('vacancies.edit');
 })->middleware(['auth', 'verified']);
 
 Route::get('/dashboard', [VacancyController::class, 'index'])

@@ -17,7 +17,7 @@
                         {{ __('Candidates') }}
                     </a>
                     {{-- Edit --}}
-                    <a href="#" class="bg-blue-500 py-2 px-4 rounded-lg text-black text-xs font-bold uppercase">
+                    <a href="{{ route('vacancies.edit', $vacancie) }}" class="bg-blue-500 py-2 px-4 rounded-lg text-black text-xs font-bold uppercase">
                         {{ __('Edit') }}
                     </a>
                     {{-- Delete --}}
