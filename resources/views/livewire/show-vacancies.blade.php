@@ -21,9 +21,11 @@
                         {{ __('Edit') }}
                     </a>
                     {{-- Delete --}}
-                    <a href="#" class="bg-red-500 py-2 px-4 rounded-lg text-black text-xs font-bold uppercase">
+                    <button
+                        wire:click="$dispatch('showDeleteAlert', { id: {{ $vacancie->id }} })"
+                        class="bg-red-500 py-2 px-4 rounded-lg text-black text-xs font-bold uppercase">
                         {{ __('Delete') }}
-                    </a>
+                    </button>
                 </div>
             </div>
         @empty
@@ -35,3 +37,37 @@
         {{ $vacancies->links() }}
     </div>
 </div>
+
+@push('scripts')
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        Livewire.on('showDeleteAlert', (vacancie) => {
+            Swal.fire({
+                title: "Are you sure?",
+                text: "You won't be able to revert this!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, delete it!"
+            }).then((result) => {
+                if (result.isConfirmed) {
+
+                    // Delete vacancie
+                    Livewire.dispatch('deleteVacancie', vacancie);
+
+                    Swal.fire({
+                        title: "Deleted!",
+                        text: "Your vacancie has been deleted.",
+                        icon: "success"
+                    });
+                }
+            });
+        });
+
+
+    </script>
+
+@endpush

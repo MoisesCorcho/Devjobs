@@ -45,7 +45,7 @@ class VacancyPolicy
      */
     public function delete(User $user, Vacancy $vacancy): bool
     {
-        //
+        return $user->id === $vacancy->user_id;
     }
 
     /**
