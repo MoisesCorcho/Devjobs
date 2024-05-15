@@ -6,22 +6,22 @@
 
         <div class="md:grid md:grid-cols-2 bg-gray-800 p-4 rounded shadow-lg border border-gray-900 my-10">
             <p class="font-bold text-sm uppercase text-gray-200 my-3">
-                Company:
+                {{ __('Company') }}:
                 <span class="normal-case font-normal">{{ $vacancy->company }}</span>
             </p>
 
             <p class="font-bold text-sm uppercase text-gray-200 my-3">
-                Last Day to Apply:
+                {{ __('Last Day to Apply') }}:
                 <span class="normal-case font-normal">{{ $vacancy->last_day->toFormattedDateString() }}</span>
             </p>
 
             <p class="font-bold text-sm uppercase text-gray-200 my-3">
-                Category:
+                {{ __('Category') }}:
                 <span class="normal-case font-normal">{{ $vacancy->category->category }}</span>
             </p>
 
             <p class="font-bold text-sm uppercase text-gray-200 my-3">
-                Category:
+                {{ __('Salary') }}:
                 <span class="normal-case font-normal">{{ $vacancy->salary->salary }}</span>
             </p>
         </div>
@@ -33,7 +33,7 @@
                     alt="{{'vacancy image' . $vacancy->title}}">
             </div>
             <div class="md:col-span-4">
-                <h2 class="text-2xl font-bold mb-5">Description</h2>
+                <h2 class="text-2xl font-bold mb-5">{{ __('Description') }}</h2>
                 <p>{{ $vacancy->description }}</p>
             </div>
         </div>
@@ -45,5 +45,9 @@
                 </p>
             </div>
         @endguest
+
+        @cannot ('create', App\Models\Vacancy::class)
+            <livewire:apply-vacancy  :vacancy="$vacancy"/>
+        @endcannot
     </div>
 </div>
