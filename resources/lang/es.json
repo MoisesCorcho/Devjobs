@@ -255,5 +255,9 @@
     "Category": "Categoría",
     "Salary": "Salario",
     "Description": "Descripción",
-    "Apply": "Aplicar"
+    "Apply": "Aplicar",
+    "You have received a new application.": "Ha recibido una nueva aplicación.",
+    "The vacancy is": "La vacante es",
+    "View Vacancy": "Ver vacante",
+    "Thank you for using DevJobs!": "Gracias por usar DevJobs!"
 }

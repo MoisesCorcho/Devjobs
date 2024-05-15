@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\Applicant;
+use App\Notifications\newApplicant;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -19,7 +20,7 @@ class ApplyVacancy extends Component
 
     public function applyVacancy()
     {
-        $data = $this->validate();
+        $this->validate();
 
         $cvPath = $this->cv->store('public/cv');
 
@@ -29,6 +30,14 @@ class ApplyVacancy extends Component
             'user_id' => auth()->user()->id,
             'cv'      => $cvName,
         ]);
+
+        $this->vacancy->recruiter->notify(
+            new newApplicant(
+                $this->vacancy->id ,
+                $this->vacancy->title,
+                auth()->user()->id
+            )
+        );
 
         return redirect()->back()->with('message', 'Applied Successfully');
     }
