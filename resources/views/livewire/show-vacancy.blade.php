@@ -41,7 +41,7 @@
         @guest
             <div class="mt-5 bg-gray-900 border border-dashed p-5 text-center">
                 <p>
-                    Do you want to apply for this position? <a class="font-bold text-indigo-500" href="{{ route('register') }}">Get an account and apply to this and other vacancies</a>
+                    {{ __('Do you want to apply for this position?') }} <a class="font-bold text-indigo-500" href="{{ route('register') }}">{{ __('Get an account and apply to this and other vacancies') }}</a>
                 </p>
             </div>
         @endguest
