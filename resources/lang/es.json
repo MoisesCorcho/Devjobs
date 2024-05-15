@@ -230,5 +230,21 @@
     "What type of account do you prefer?": "¿Que tipo de cuenta prefieres?",
     "-- Select a rol --": "-- Selecciona un rol --",
     "Developer - Obtain employment": "Desarrollador - Obtener empleo",
-    "Recruiter - Post a job": "Reclutador - Publicar un empleo"
+    "Recruiter - Post a job": "Reclutador - Publicar un empleo",
+    "Create Account": "Crear cuenta",
+    "My Vacancies": "Mis vacantes",
+    "Create Vacancy": "Crear vacante",
+    "Profile": "Perfil",
+    "Vacancy Title": "Título de la vacante",
+    "Vacancy Salary": "Salario de la vacante",
+    "Vacancy Category": "Categoría de la vacante",
+    "Company": "Compañia",
+    "Last day to apply": "Ultimo día para aplicar",
+    "Description of the vacancy": "Descripción de la vacante",
+    "Create Vacancys": "Crear vacantes",
+    "Post Vacancy": "Publicar vacante",
+    "save Changes": "Guardar cambios",
+    "Current Image": "Imagen actual",
+    "New Image": "Nueva imagen",
+    "Edit Vacancy": "Editar vacante"
 }

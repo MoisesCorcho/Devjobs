@@ -131,6 +131,6 @@
     </div>
 
     <x-primary-button class="w-full justify-center">
-        save Changes
+        {{ __('save Changes') }}
     </x-primary-button>
 </form>

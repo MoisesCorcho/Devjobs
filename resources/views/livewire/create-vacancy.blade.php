@@ -125,6 +125,6 @@
     </div>
 
     <x-primary-button class="w-full justify-center">
-        Create Vacancy
+        {{ __('Create Vacancy')}}
     </x-primary-button>
 </form>

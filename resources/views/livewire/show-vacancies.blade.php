@@ -4,7 +4,7 @@
         @forelse ($vacancies as $vacancie)
             <div class="p-6 text-gray-900 dark:text-gray-100 md:flex md:justify-between md:items-center dark:border-b dark:border-gray-100">
                 <div class="leading-10 space-y-3">
-                    <a href="#" class="text-xl font-bold">
+                    <a href="{{ route('vacancies.show', $vacancie) }}" class="text-xl font-bold">
                         {{ $vacancie->title }}
                     </a>
                     <p>{{ $vacancie->description }}</p>
