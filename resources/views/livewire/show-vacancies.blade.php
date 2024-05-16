@@ -13,8 +13,8 @@
                 </div>
                 <div class="flex gap-3 flex-col items-stretch text-center mt-5 md:mt-0 md:flex-row">
                     {{-- Candidates --}}
-                    <a href="#" class="bg-gray-200 py-2 px-4 rounded-lg text-black text-xs font-bold uppercase">
-                        {{ __('Candidates') }}
+                    <a href="{{ route('applicants.index', $vacancie) }}" class="bg-gray-200 py-2 px-4 rounded-lg text-black text-xs font-bold uppercase">
+                        {{ $vacancie->applicants->count() }} | {{ __('Candidates') }}
                     </a>
                     {{-- Edit --}}
                     <a href="{{ route('vacancies.edit', $vacancie) }}" class="bg-blue-500 py-2 px-4 rounded-lg text-black text-xs font-bold uppercase">

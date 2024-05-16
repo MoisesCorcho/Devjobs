@@ -38,7 +38,7 @@ class Vacancy extends Model
 
     public function applicants(): HasMany
     {
-        return $this->hasMany(Applicant::class);
+        return $this->hasMany(Applicant::class)->orderBy('created_at', 'desc');
     }
 
     public function recruiter(): BelongsTo

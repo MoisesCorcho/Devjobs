@@ -264,5 +264,9 @@
     "Notifications": "Notificaciones",
     "There are no new notifications.": "No hay nuevas notificaciones.",
     "You have a new applicant.": "Tienes una nueva aplicante.",
-    "See applicants": "Ver aplicantes"
+    "See applicants": "Ver aplicantes",
+    "Vacancy Applicants": "Aplicantes de la vacante",
+    "There are no new applicants.": "No hay nuevas aplicantes.",
+    "Applied": "Aplicado",
+    "See CV": "Ver CV"
 }
