@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Database\Eloquent\Builder;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -19,6 +20,20 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        Builder::macro('allowedFilters', function ($allowedFilters) {
+            /** @var Builder $this */
+
+            foreach ($allowedFilters as $filter => $value) {
+
+                // dump($filter, $value);
+                if ($value != "") {
+                    $this->hasNamedScope($filter)
+                        ? $this->{$filter}($value)
+                        : $this->orWhere($filter, 'LIKE', '%' . $value . '%');
+                }
+            }
+
+            return $this;
+        });
     }
 }

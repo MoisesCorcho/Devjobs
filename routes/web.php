@@ -18,6 +18,7 @@ use App\Http\Controllers\NotificationController;
 |
 */
 
+// Home Routes
 Route::get('/', HomeController::class)->name('home');
 
 // Vacancy Routes
