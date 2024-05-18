@@ -37,7 +37,7 @@ class newApplicant extends Notification
      */
     public function toMail(object $notifiable): MailMessage
     {
-        $url = url('/notifications/' . $this->userId);
+        $url = url('/notifications');
 
         return (new MailMessage)
                     ->line( __('You have received a new application.') )

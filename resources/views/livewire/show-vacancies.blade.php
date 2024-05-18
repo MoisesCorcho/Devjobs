@@ -1,15 +1,15 @@
 <div>
-    <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+    <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg dark:divide-y dark:divide-gray-100">
 
         @forelse ($vacancies as $vacancie)
-            <div class="p-6 text-gray-900 dark:text-gray-100 md:flex md:justify-between md:items-center dark:border-b dark:border-gray-100">
+            <div class="p-6 text-gray-900 dark:text-gray-100 md:flex md:justify-between md:items-center">
                 <div class="leading-10 space-y-3">
                     <a href="{{ route('vacancies.show', $vacancie) }}" class="text-xl font-bold">
                         {{ $vacancie->title }}
                     </a>
                     <p>{{ $vacancie->description }}</p>
 
-                    <p class="text-sm text-gray">Last Day: {{ $vacancie->last_day->format('d/m/Y') }}</p>
+                    <p class="text-sm text-gray">{{ __('Last Day') }}: {{ $vacancie->last_day->format('d/m/Y') }}</p>
                 </div>
                 <div class="flex gap-3 flex-col items-stretch text-center mt-5 md:mt-0 md:flex-row">
                     {{-- Candidates --}}

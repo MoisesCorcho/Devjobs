@@ -6,25 +6,31 @@
             {{ session('message') }}
         </p>
     @else
-        <form class="w-96 mt-5" wire:submit.prevent="applyVacancy">
-            <div class="mb-4">
-                <x-input-label for="cv" :value="__('Upload your CV')"></x-input-label>
-                <x-text-input
-                    wire:model="cv"
-                    id="cv"
-                    type="file"
-                    accept=".pdf"
-                    class="block mt-1 w-full"/>
+        @if ( !auth()->user()->applied( $vacancy ) )
+            <form class="w-96 mt-5" wire:submit.prevent="applyVacancy">
+                <div class="mb-4">
+                    <x-input-label for="cv" :value="__('Upload your CV')"></x-input-label>
+                    <x-text-input
+                        wire:model="cv"
+                        id="cv"
+                        type="file"
+                        accept=".pdf"
+                        class="block mt-1 w-full"/>
 
-                    @error('cv')
-                        <livewire:show-alert :message="$message"/>
-                    @enderror
-            </div>
+                        @error('cv')
+                            <livewire:show-alert :message="$message"/>
+                        @enderror
+                </div>
 
-            <x-primary-button class="my-5 block w-full justify-center">
-                {{ __('Apply') }}
-            </x-primary-button>
-        </form>
+                <x-primary-button class="my-5 block w-full justify-center">
+                    {{ __('Apply') }}
+                </x-primary-button>
+            </form>
+        @else
+        <div class="bg-slate-800 p-5 rounded-lg shadow-lg border border-gray-900">
+            {{ __('You have already applied to this vacancy') }}
+        </div>
+        @endif
     @endif
 
 </div>
