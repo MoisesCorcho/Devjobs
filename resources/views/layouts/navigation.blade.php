@@ -30,6 +30,15 @@
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ms-6">
+
+                {{-- Language Icons --}}
+                <a href="{{ route('locale', 'es') }}" class="w-7 h-7 mr-2">
+                    <img src="{{ asset('icons/es.png') }}" alt="es_icon">
+                </a>
+                <a href="{{ route('locale', 'ue') }}" class="w-7 h-7">
+                    <img src="{{ asset('icons/ue.png') }}" alt="ue_icon">
+                </a>
+
                 @auth
 
                     @if (auth()->user()->rol ===2)

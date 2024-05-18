@@ -34,6 +34,10 @@
                     </p>
                 @endforelse
             </div>
+
+            <div class="mt-5 max-w-7xl mx-auto">
+                {{ $vacancies->links() }}
+            </div>
         </div>
     </div>
 </div>

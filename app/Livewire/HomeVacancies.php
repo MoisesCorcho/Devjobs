@@ -22,7 +22,7 @@ class HomeVacancies extends Component
 
     public function render()
     {
-        $vacancies = Vacancy::paginate(10);
+        $vacancies = Vacancy::paginate(5);
 
         if ($this->concept || $this->salary || $this->category) {
             $vacancies = Vacancy::query()

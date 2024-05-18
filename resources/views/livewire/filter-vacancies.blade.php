@@ -48,7 +48,7 @@
                 <input
                     type="submit"
                     class="bg-indigo-500 hover:bg-indigo-600 transition-colors text-white text-sm font-bold px-10 py-2 rounded cursor-pointer uppercase w-full md:w-auto"
-                    value="Buscar"
+                    value="{{__('Search')}}"
                 />
             </div>
         </form>
