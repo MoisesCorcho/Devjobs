@@ -32,10 +32,10 @@
             <div class="hidden sm:flex sm:items-center sm:ms-6">
 
                 {{-- Language Icons --}}
-                <a href="{{ route('locale', 'es') }}" class="w-7 h-7 mr-2">
+                <a href="{{ route('locale', 'es') }}" class="w-7 h-7">
                     <img src="{{ asset('icons/es.png') }}" alt="es_icon">
                 </a>
-                <a href="{{ route('locale', 'ue') }}" class="w-7 h-7">
+                <a href="{{ route('locale', 'ue') }}" class="w-7 h-7 mx-2">
                     <img src="{{ asset('icons/ue.png') }}" alt="ue_icon">
                 </a>
 
@@ -43,6 +43,7 @@
 
                     @if (auth()->user()->rol ===2)
                         <a
+                            id="data-container"
                             href="{{ route('notifications') }}"
                             class="mr-2 w-7 h-7 bg-indigo-600 hover:bg-indigo-800 rounded-full flex flex-col justify-center items-center text-white text-sm font-extrabold">
                             {{ Auth::user()->unreadNotifications->count() }}
@@ -176,3 +177,20 @@
         @endguest
     </div>
 </nav>
+
+@push('scripts')
+
+    <script src="https://js.pusher.com/8.2.0/pusher.min.js"></script>
+
+    <script>
+        var pusher = new Pusher('6cd53ece0e138a43f2e4', {
+            cluster: 'us2'
+        });
+
+        var channel = pusher.subscribe('see-notifications');
+            channel.bind('see-notifications-event', function(data) {
+                document.getElementById('data-container').innerText = JSON.stringify(data.notifications);
+            });
+    </script>
+
+@endpush

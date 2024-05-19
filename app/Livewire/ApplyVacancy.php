@@ -39,6 +39,11 @@ class ApplyVacancy extends Component
             )
         );
 
+        $unreadNotifications = $this->vacancy->recruiter->unreadNotifications->count();
+        event(new \App\Events\SeeNotifications($unreadNotifications));
+
+        event(new \App\Events\SeeApplicants($this->vacancy));
+
         return redirect()->back()->with('message', 'Applied Successfully');
     }
 
