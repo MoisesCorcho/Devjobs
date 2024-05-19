@@ -14,9 +14,10 @@
                 <div class="flex gap-3 flex-col items-stretch text-center mt-5 md:mt-0 md:flex-row">
                     {{-- Candidates --}}
                     <a
+                        wire:poll
                         href="{{ route('applicants.index', $vacancie) }}"
                         class="bg-gray-200 py-2 px-4 rounded-lg text-black text-xs font-bold uppercase">
-                        <div id="applicants-pusher-{{ $vacancie->id }}" class="inline">{{ $vacancie->applicants->count() }}</div> | {{ __('Candidates') }}
+                        <div class="inline">{{ $vacancie->applicants->count() }}</div> | {{ __('Candidates') }}
                     </a>
                     {{-- Edit --}}
                     <a href="{{ route('vacancies.edit', $vacancie) }}" class="bg-blue-500 py-2 px-4 rounded-lg text-black text-xs font-bold uppercase">
@@ -70,20 +71,4 @@
             });
         });
     </script>
-
-    <script>
-        var pusher = new Pusher('6cd53ece0e138a43f2e4', {
-            cluster: 'us2'
-        });
-
-        var channel = pusher.subscribe('see-applicants');
-        channel.bind('see-applicants-event', function(data) {
-
-            var element = document.getElementById('applicants-pusher-' + data.vacancy.id);
-            if (element) {
-                element.innerText = data.applicants;
-            }
-        });
-    </script>
-
 @endpush
